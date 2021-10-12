@@ -7,7 +7,7 @@
   "author": "santanaG <gs8777@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "NODE_ENV=production node -r dotenv/config code/server.js",
+    "start": "NODE_ENV=production node code/server.js",
     "dev": "nodemon -r dotenv/config server.js"
   },
   "devDependencies": {
