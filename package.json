@@ -2,12 +2,13 @@
   "name": "mona-server",
   "version": "1.0.0",
   "main": "server.js",
+  "type":"module",
   "repository": "https://github.com/santanaG/mona-server.git",
   "author": "santanaG <gs8777@gmail.com>",
   "license": "MIT",
   "scripts": {
     "start": "NODE_ENV=production nodemon -r dotenv/config code/server.js",
-    "dev": "nodemon -r dotenv/config code/server.js"
+    "dev": "nodemon -r dotenv/config server.js"
   },
   "devDependencies": {
     "eslint": "^8.0.0",
