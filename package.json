@@ -1,0 +1,15 @@
+{
+  "name": "mona-server",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": "https://github.com/santanaG/mona-server.git",
+  "author": "santanaG <gs8777@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.0.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.25.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0"
+  }
+}

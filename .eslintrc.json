@@ -1,0 +1,15 @@
+{
+	"env": {
+		"node": true,
+		"es2021": true,
+		"jest": true
+	},
+	"extends": ["standard"],
+	"plugins": ["import", "node", "promise"],
+	"parserOptions": {
+		"ecmaVersion": "latest",
+		"sourceType": "module"
+	},
+	"rules": { "import/first": 0 }
+}
+ 
