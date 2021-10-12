@@ -7,8 +7,11 @@
   "author": "santanaG <gs8777@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "NODE_ENV=production node code/server.js",
+    "start": "NODE_ENV=production node -r dotenv/config code/server.js",
     "dev": "nodemon -r dotenv/config server.js"
+  },
+  "engines": {
+    "node": "16.x"
   },
   "devDependencies": {
     "eslint": "^8.0.0",
