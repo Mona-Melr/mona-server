@@ -20,9 +20,7 @@
     data-currency="USD">
   </script>
   <script type="module">
-    console.log('IN SCRIPT')
     document.addEventListener('DOMContentLoaded', () => {
-      console.log('DOMContentLoaded')
       window.CollectJS.configure({
         validationCallback: (field, status, message) => {
           const type = t => `${field} is now ${t}: ${message}`
