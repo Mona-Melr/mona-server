@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Page</title>
+  <script
+    src="https://monapaymentsolutions.transactiongateway.com/token/Collect.js"
+    data-tokenization-key="5mN8N7-jhr55W-N22pxX-uAW2s9"
+    data-variant="inline"
+    data-field-ccnumber-title = 'Card Number'
+    data-field-ccnumber-placeholder = '0000 0000 0000 0000'
+    data-field-ccnumber-enable-card-brand-previews= 'true'
+    data-field-ccexp-title = 'Expiration Date'
+    data-field-ccexp-placeholder = '00 / 00'
+    data-field-cvv-display = 'required'
+    data-field-cvv-title = 'CVV Code'
+    data-field-cvv-placeholder = '***'
+    data-currency="USD">
+  </script>
+  <script type="module">
+    console.log('IN SCRIPT')
+    document.addEventListener('DOMContentLoaded', () => {
+      console.log('DOMContentLoaded')
+      window.CollectJS.configure({
+        validationCallback: (field, status, message) => {
+          const type = t => `${field} is now ${t}: ${message}`
+          console.log(status ? type('OK') : type('Invalid'))
+        }
+      })
+    })
+
+  </script>
+</head>
+<body>
+  <main>
+    <h1>Custom Payment Form</h1>
+    <form action="/submit" method="get">
+      <h3>Order Info</h3>
+
+      <label for="orderNumber">Order/PO:</label>
+      <input type="text" name="orderNumber" id="">
+      
+      <label for="pickup">Pickup By:</label>
+      <input type="text" name="pickup" id="">
+      
+      <label for="cost">Cost:</label>
+      <input type="number" name="cost" id="">
+      
+      <h3>Credit Card Info</h3>
+      
+      <label>Card Number</label>
+      <div name="ccnumber" id="ccnumber"></div>
+      
+      <label>Card Expiration</label>
+      <div name="ccexp" id="ccexp"></div>
+      
+      <label>Card CVV</label>
+      <div name="cvv" id="cvv"></div>
+      
+      <input type="submit" id="payButton" value="Submit">
+    </form>
+  </main>
+</body>
+</html>
