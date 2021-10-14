@@ -7,6 +7,7 @@ app.use(express.urlencoded({ extended: true }))
 import https from 'https'
 import { URLSearchParams } from 'url'
 import info from './results.js'
+
 app.route('/submit').get(({ query }, res) => {
   const postData = new URLSearchParams(Object.assign(query, {
     type: 'sale',
@@ -47,8 +48,8 @@ app.route('/submit').get(({ query }, res) => {
       if (+code === 100) res.redirect(`${success}${clientQuery}`)
     })
   })
-  request.on('error', e => console.error(e))
 
+  request.on('error', e => console.error(e))
   request.write(postData)
   request.end()
 })
