@@ -9,7 +9,7 @@ app.use(express.urlencoded({ extended: true }))
 // import info from './results.js'
 
 app.route('/submit').get((req, res) => {
-  console.log(req.get('host'))
+  console.log(req)
   // const paramsObject = Object.assign(req.query, {
   //   type: 'sale',
   //   security_key: process.env.APIKEY
