@@ -42,9 +42,9 @@ app.route('/submit').get((req, res) => {
         transactionid: params.get('transactionid')
       }
       const clientQuery = new URLSearchParams(clientParams)
-      const { referer, host } = req
-      const success = `${referer || host}receipt/?`
-      const failure = `${referer || host}cancelled/?`
+      const redirectDomain = req.get('referer') || req.get('host')
+      const success = `${redirectDomain}receipt/?`
+      const failure = `${redirectDomain}cancelled/?`
 
       if (+code > 100) res.redirect(`${failure}${clientQuery}`)
       else if (+code === 100) res.redirect(`${success}${clientQuery}`)
