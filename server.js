@@ -43,12 +43,13 @@ app.route('/submit').get((req, res) => {
       }
       const clientQuery = new URLSearchParams(clientParams)
       const redirectDomain = req.get('referer') || req.get('host')
-      const success = `${redirectDomain}receipt/?`
-      const failure = `${redirectDomain}cancelled/?`
+      const resultPage = `${redirectDomain}result.html?`
 
-      if (+code > 100) res.redirect(`${failure}${clientQuery}`)
-      else if (+code === 100) res.redirect(`${success}${clientQuery}`)
-      else console.log(`Response code: ${code} is not a valid code`)
+      if (+code >= 100) res.redirect(`${resultPage}${clientQuery}`)
+      else {
+        console.log(`Response code: ${code} is not a valid code`)
+        res.redirect(redirectDomain)
+      }
     })
   })
 

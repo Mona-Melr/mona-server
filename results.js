@@ -36,8 +36,8 @@ export default {
     461: 'Unsupported card type.'
   },
   responseTypes: {
-    1: "Transaction Approved'",
-    2: "Transaction Declined'",
+    1: 'Transaction Approved',
+    2: 'Transaction Declined',
     3: 'Error in transaction data or system error'
   }
 }

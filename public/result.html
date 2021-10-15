@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Transaction</title>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search)
+      const text = t => document.createTextNode(t)
+      const qs = ['response', 'result', 'reason', 'type', 'transactionid']
+        .map((k, i) => () => document
+          .getElementById(k)
+          .appendChild(text(i > 0 ? `${k}: ${params.get(k)}`.toUpperCase() : `${params.get(k)}`)))
+      
+      qs.forEach(f => f())
+    })
+  </script>
+</head>
+<body>
+  <h1 id="response"></h1>
+  <h4 id="type"></h4>
+  <h4 id="result"></h4>
+  <h4 id="reason"></h4>
+  <h4 id="transactionid"></h4>
+</body>
+</html>
