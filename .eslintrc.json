@@ -10,6 +10,6 @@
 		"ecmaVersion": "latest",
 		"sourceType": "module"
 	},
-	"rules": { "import/first": 0 }
+	"rules": { "import/first": 0, "no-lone-blocks": 0, "curly": 0 }
 }
  
