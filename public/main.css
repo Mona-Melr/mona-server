@@ -1,0 +1,335 @@
+* {
+	margin: 0;
+}
+html, body {
+	height: 100%;
+}
+
+.page-wrap {
+  min-height: 100%;
+  /* equal to footer height */
+	margin-bottom: -142px;
+  background: url('https://store.melrosemac.com/media/assets/GoldWave.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+.page-wrap:after {
+  content: "";
+  display: block;
+}
+.site-footer, .page-wrap:after {
+  /* .push must be the same height as footer */
+	height: 142px; 
+}
+
+.site-footer {
+  background: #424F60;
+}
+
+footer p {
+  color: white;
+  text-align: center;
+  font-family: 'SourceSansPro-Regular';
+  font-size: 20px;
+}
+
+#socials-wrap {
+  max-width: 225px;
+  display: block;
+  position: relative;
+  margin: auto;
+  padding-top: 35px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+#socials-wrap img {
+  max-height: 40px;
+}
+
+header {
+  margin-left: 35px;
+  padding-top: 40px;
+}
+
+header img {
+  max-width: 250px;
+}
+
+.form-wrap {
+    max-width: 320px;
+    position: relative;
+    margin: auto;
+    border-radius: 3px;
+    background: white;
+    min-height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    font-family: 'SourceSansPro-Regular';
+    filter: drop-shadow(0px 3px 6px #00000024);
+    padding: 0 20px;
+}
+
+.form-wrap h4 {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 100;
+}
+
+.form-wrap label {
+  width: 45px;
+}
+
+.form-wrap button {
+  width: 85%;
+    background: #2F4F4F;
+    color: white;
+    border-radius: 3px;
+    border: none;
+    padding: 10px 0;
+    font-size: 17px;
+    font-family: 'SourceSansPro-Semibold';
+    letter-spacing: 1px;
+}
+
+.form-wrap button:hover {
+  cursor: pointer;
+}
+
+header a img {
+  z-index: 9;
+}
+
+.form-wrap input {
+    border: 1px solid lightgray;
+    border-radius: 3px;
+    padding: 6px 0;
+}
+
+/* insert slider css */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.slider {
+    position: relative;
+    width: 100vw;
+    height: calc(100vh - 258px);
+    overflow: hidden;
+}
+
+.slider-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: none;
+}
+
+.sl_title {
+    position: absolute;
+    left: 30vw;
+    top: 10vh;
+    color: #8BC34A;
+    height: auto;
+}
+
+.sl_main_title,
+.sl_sub_title {
+    display: flex;
+    position: relative;
+    margin: 1vh 0;
+    overflow: hidden;
+    background-color: rgba(0,0,0,0.5);
+    white-space: nowrap;
+}
+
+.sl_main_title span {
+    font-size: 12vw;
+    padding: .75vw;
+}
+
+.sl_sub_title span {
+    font-size: 6vw;
+    padding: .75vw;
+}
+
+.slider-btn {
+    position: relative;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2vh;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.slider-label {
+    position: absolute;
+    color: #8BC34A;
+}
+
+
+/* Navigation */
+
+.slider-nav-btn {
+    cursor: pointer;
+}
+
+.go-prev {
+    position: absolute;
+    left: 0;
+    bottom: 50vh;
+    margin-left: 5vw;
+    background-image: url("https://drive.google.com/uc?id=14DNCaPw93zLzYApGMBaTlmgjnMgyPAhh");
+    background-repeat: no-repeat;
+    background-position: left;
+    width: 10vh;
+    height: 10vh;
+}
+
+.go-prev:hover {
+    background-image: url("https://drive.google.com/uc?id=1LNlfizA-2kbUSZlX8JfEPfFKvVHxtZ-I");
+}
+
+.slide-bullet-wrapper {
+    position: absolute;
+    top: 5vh;
+    display: flex;
+    width: 100vw;
+    justify-content: center;
+}
+
+.bullet {
+    margin-left: 1vw;
+    width: 81px;
+    height: 81px;
+    background-color: rgba(0,0,0,0.5);
+    overflow: hidden;
+    border-radius: 40px;
+}
+
+.bullet-fill {
+    width: 0%;
+    height: 100%;
+    background-color: #DAA550;
+}
+
+.bullet-fill:before {
+    display: block;
+    content: ' ';
+    height: 100%;
+    width: 100%;
+}
+
+.bullet-check {
+  background: url('https://store.melrosemac.com/media/assets/check.svg');
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    background-size: 81px;
+    width: 0;
+    max-width: 81px;
+}
+
+.bullet:first-child .bullet-fill:before {
+  background: url('https://store.melrosemac.com/media/assets/svg1.svg');
+  background-repeat: no-repeat;
+  background-size: 79px 81px;
+}
+
+.bullet:nth-child(2) .bullet-fill:before {
+  background: url('https://store.melrosemac.com/media/assets/svg2.svg');
+  background-repeat: no-repeat;
+  background-size: 79px 81px;
+}
+
+.bullet:nth-child(3) .bullet-fill:before {
+  background: url('https://store.melrosemac.com/media/assets/svg3.svg');
+  background-repeat: no-repeat;
+  background-size: 79px 81px;
+}
+
+.progress-wrapper {
+    position: absolute;
+    height: 0.65vh;
+    display: flex;  
+    bottom: 1vh;
+    overflow: hidden;
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 10px;
+    width: 60vw;
+    margin: 0 20vw 0 20vw;
+}
+
+.progress {
+    background-color: #8BC34A;
+    white-space: nowrap;
+    border-radius: 10px;
+}
+
+a {
+  text-decoration: none;
+}
+
+@media only screen and (min-width: 1024px) {
+
+    .sl_title {
+        left: 50vw;
+    }
+
+    .sl_main_title span {
+        font-size: 5vw;
+        padding: .75vw;
+    }
+    
+    .sl_sub_title span {
+        font-size: 2vw;
+        padding: .75vw;
+    }    
+}
+
+/* end slider css */
+
+@media screen and (max-width:1900px) {
+  .page-wrap {
+    background-size: contain;
+  }
+}
+
+@media screen and (max-height:660px) {
+  .page-wrap {
+    background-size: cover;
+  }
+}
+
+.trigger {
+    width: 80px;
+    background: #2F4F4F;
+    color: white;
+    border-radius: 6px;
+    border: none;
+    font-size: 18px;
+    font-family: 'SourceSansPro-Semibold';
+    letter-spacing: 2px;
+}
+
+#finalForm {
+  display: none;
+}

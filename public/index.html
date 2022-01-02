@@ -1,53 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Test Page</title>
-  <script
-    src="https://monapaymentsolutions.transactiongateway.com/token/Collect.js"
-    data-tokenization-key="7qyF5Y-2733nM-3tvXXH-Nkm3d7"
-    data-variant="inline"
-    data-field-ccnumber-title = 'Card Number'
-    data-field-ccnumber-placeholder = '0000 0000 0000 0000'
-    data-field-ccnumber-enable-card-brand-previews= 'true'
-    data-field-ccexp-title = 'Expiration Date'
-    data-field-ccexp-placeholder = '00 / 00'
-    data-field-cvv-display = 'required'
-    data-field-cvv-title = 'CVV Code'
-    data-field-cvv-placeholder = '***'
-    data-currency="USD">
-  </script>
-</head>
-<body>
-  <main>
-    <h1>Custom Payment Form</h1>
-    <form action="/submit" method="get">
-      <h3>Order Info</h3>
-
-      <label for="merchant_defined_field_1">Order/PO:</label>
-      <input type="text" name="merchant_defined_field_1" id="">
-      
-      <label for="merchant_defined_field_2">Pickup By:</label>
-      <input type="text" name="merchant_defined_field_2" id="">
-      
-      <label for="amount">Amount:</label>
-      <input type="number" name="amount" id="">
-      
-      <h3>Credit Card Info</h3>
-      
-      <label>Card Number</label>
-      <div name="ccnumber" id="ccnumber"></div>
-      
-      <label>Card Expiration</label>
-      <div name="ccexp" id="ccexp"></div>
-      
-      <label>Card CVV</label>
-      <div name="cvv" id="cvv"></div>
-      
-      <input type="submit" id="payButton" value="Submit">
-    </form>
-  </main>
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Page</title>
+    <script
+      src="https://monapaymentsolutions.transactiongateway.com/token/Collect.js"
+      data-tokenization-key="7qyF5Y-2733nM-3tvXXH-Nkm3d7"
+      data-theme="material"
+      data-country="US"
+      data-currency="USD"
+      data-price="0"
+      data-field-google-pay-button-color="white"
+      data-field-apple-pay-style-button-style="white"
+      >
+    </script>
+    <link rel="stylesheet" href="./main.css"></link>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.0/gsap.min.js"></script>
+    <script src="./main.js" type="module"></script>
+  </head>
+  <body>
+    <div class="page-wrap">
+      <header>
+        <a href="https://store.melrosemac.com">
+          <img src="https://store.melrosemac.com/media/assets/Full_Logo.png">
+        </a>
+      </header>
+      <main class='slider-holder'>
+        <div class="slide-bullet-wrapper"></div>
+        <div class="slider">
+          <div class="slider-item">
+            <form class="form-wrap">
+              <h4>Order Number</h4>
+              <table class="form-table">
+                <tr>
+                  <td><label>Order/PO:</label></td>
+                  <td><input id="order" required></input></td>
+                </tr>
+                <tr>
+                  <td><label>Pick-up person:</label></td>
+                  <td><input id="pickup" required></input></td>
+                </tr>
+              </table>
+              <button class="next">START</button>
+            </form>
+          </div>
+          <div class="slider-item">
+            <form class="form-wrap">
+              <h4>Payment Amount</h4>
+              <input type="number" id='price' required></input>
+              <button class="back">BACK</button>
+              <button class="next">CONTINUE TO PAYMENT</button>
+            </form>
+          </div>
+          <div class="slider-item">
+            <form class="form-wrap">
+              <h4>Choose your Payment Method</h4>
+              <table class="form-table">
+                <tr><button id="payButton">Credit Card</button></tr>
+                <tr><div id="googlepaybutton"></div></tr>
+                <tr><div id="applepaybutton"></div></tr>
+              </table>
+              <button class="back">BACK</button>
+            </form>
+          </div>
+        </div>
+      </main>
+      <form hidden action="/submit" id="finalForm"></form>
+      <footer class="site-footer">
+        <div id="socials-wrap">
+          <a href="https://www.linkedin.com/company/melrose-inc-mac/mycompany/">
+            <img src="https://store.melrosemac.com/media/assets/LI.png"></a>
+          <a href="https://www.instagram.com/melroseincla/">
+            <img src="https://store.melrosemac.com/media/assets/IG.png"></a>
+          <a href="https://www.facebook.com/MelroseINC/">
+            <img src="https://store.melrosemac.com/media/assets/FB.png"></a>
+        </div>
+        <a href="https://melroseinc.com">
+          <p>melroseinc.com</p>
+        </a>
+      </footer>
+    </div>
+  </body>
 </html>

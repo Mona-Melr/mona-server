@@ -26,22 +26,16 @@ app.route('/submit').get((req, res) => {
   }
 
   const request = https.request(options, response => {
-    // console.log(`STATUS: ${response.statusCode}`)
-    // console.log(`HEADERS: ${JSON.stringify(response.headers)}`)
-    // response.on('data', chunk => console.log(`BODY: ${chunk}`))
-    // response.on('end', () => console.log('Done'))
-
     response.on('data', buffer => {
       const params = new URLSearchParams(buffer.toString())
       const code = params.get('response_code')
-      const clientParams = {
+      const clientQuery = new URLSearchParams({
         response: info.responseTypes[params.get('response')],
         result: info.resultCodes[code],
         reason: params.get('responsetext'),
         type: params.get('type'),
         transactionid: params.get('transactionid')
-      }
-      const clientQuery = new URLSearchParams(clientParams)
+      })
       const redirectDomain = req.get('referer') || req.get('host')
       const resultPage = `${redirectDomain}result.html?`
 
