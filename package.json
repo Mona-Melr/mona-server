@@ -11,7 +11,7 @@
     "dev": "nodemon -r dotenv/config server.js"
   },
   "engines": {
-    "node": "16.x",
+    "node": "17.x",
     "yarn": "1.x",
     "npm": "7.x"
   },
