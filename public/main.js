@@ -53,7 +53,7 @@ const updateCollectJS = formData => window.CollectJS.configure({
 
     { [
       ...formData,
-      { name: 'token', value: token },
+      { name: 'payment_token', value: token },
       { name: 'tokenType', value: tokenType }
     ].forEach(inputValues => {
       form.appendChild(Object.assign(
@@ -61,12 +61,6 @@ const updateCollectJS = formData => window.CollectJS.configure({
         inputValues
       ))
     }) }
-
-    console.log([
-      ...formData,
-      { name: 'token', value: token },
-      { name: 'tokenType', value: tokenType }
-    ])
 
     form.submit()
   }
