@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test Page</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.0/gsap.min.js"></script>
     <script
       src="https://monapaymentsolutions.transactiongateway.com/token/Collect.js"
       data-tokenization-key="7qyF5Y-2733nM-3tvXXH-Nkm3d7"
@@ -17,7 +18,6 @@
       >
     </script>
     <link rel="stylesheet" href="./main.css"></link>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.0/gsap.min.js"></script>
     <script src="./main.js" type="module"></script>
   </head>
   <body>
@@ -27,47 +27,108 @@
           <img src="https://store.melrosemac.com/media/assets/Full_Logo.png">
         </a>
       </header>
+
       <main class='slider-holder'>
+
         <div class="slide-bullet-wrapper"></div>
+
         <div class="slider">
+
           <div class="slider-item">
             <form class="form-wrap">
-              <h4>Order Number</h4>
+              <h4>Payment Method</h4>
+              <table class="form-table">
+                <tr>
+                  <input type="radio" name="paymentMethod" value="cc" id="pmcc" checked>
+                  <label for="pmcc">Credit Card</label>
+                </tr>
+                <tr>
+                  <input type="radio" name="paymentMethod" value="gp" id="pmgp">
+                  <label for="pmgp">Google Pay</label>
+                </tr>
+                <tr>
+                  <input type="radio" name="paymentMethod" value="ap" id="pmap">
+                  <label for="pmap">Apple Pay</label>
+                </tr>
+              </table>
+              <button class="next" type="button">NEXT</button>
+            </form>
+          </div>
+
+          <div class="slider-item" id="orderInfo">
+            <form class="form-wrap">
+              <h4>Order Info</h4>
               <table class="form-table">
                 <tr>
                   <td><label>Order/PO:</label></td>
-                  <td><input id="order" required></input></td>
+                  <td><input name="merchant_defined_field_1" required></input></td>
                 </tr>
                 <tr>
                   <td><label>Pick-up person:</label></td>
-                  <td><input id="pickup" required></input></td>
+                  <td><input name="merchant_defined_field_2" required></input></td>
+                </tr>
+                <tr>
+                  <td><label>Amount:</label></td>
+                  <td><input type="number" name='amount' required></input></td>
+                </tr>
+                <tr>
+                  <td><label>First Name:</label></td>
+                  <td><input name='first_Name' required></input></td>
+                </tr>
+                <tr>
+                  <td><label>Last Name:</label></td>
+                  <td><input name='last_Name' required></input></td>
+                </tr>
+                <tr>
+                  <td><label>Street Address:</label></td>
+                  <td><input name='address1' required></input></td>
+                </tr>
+                <tr>
+                  <td><label>Zip:</label></td>
+                  <td><input name='zip' required></input></td>
                 </tr>
               </table>
-              <button class="next">START</button>
+              <button class="back" type="button">BACK</button>
+              <button class="next" type="button">NEXT</button>
             </form>
           </div>
-          <div class="slider-item">
+
+          <div class="slider-item" id="cc-pay">
             <form class="form-wrap">
-              <h4>Payment Amount</h4>
-              <input type="number" id='price' required></input>
-              <button class="back">BACK</button>
-              <button class="next">CONTINUE TO PAYMENT</button>
-            </form>
-          </div>
-          <div class="slider-item">
-            <form class="form-wrap">
-              <h4>Choose your Payment Method</h4>
+              <h4>Pay</h4>
               <table class="form-table">
                 <tr><button id="payButton">Credit Card</button></tr>
-                <tr><div id="googlepaybutton"></div></tr>
-                <tr><div id="applepaybutton"></div></tr>
               </table>
-              <button class="back">BACK</button>
+              <button class="back" type="button">BACK</button>
             </form>
           </div>
+
+          <div class="slider-item" id="gp-pay">
+            <form class="form-wrap">
+              <h4>Pay</h4>
+              <table class="form-table">
+                <tr><div id="googlepaybutton"></div></tr>
+              </table>
+              <button class="back" type="button">BACK</button>
+            </form>
+          </div>
+
+          <div class="slider-item" id="ap-pay">
+            <form class="form-wrap">
+              <h4>Pay</h4>
+              <table class="form-table">
+                <tr><div id="applepaybutton"></div></tr>
+              </table>
+              <button class="back" type="button">BACK</button>
+            </form>
+          </div>
+
         </div>
+
       </main>
-      <form hidden action="/submit" id="finalForm"></form>
+
+      <form hidden action="/submit" id="formSubmit"></form>
+
       <footer class="site-footer">
         <div id="socials-wrap">
           <a href="https://www.linkedin.com/company/melrose-inc-mac/mycompany/">
