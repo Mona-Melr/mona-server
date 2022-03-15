@@ -3,11 +3,9 @@ if (!window.ApplePaySession) Object.assign(
   { disabled: true }
 )
 
-// const preventDefaultSubmit = el => el.addEventListener('submit', e => e.preventDefault())
-
 const { gsap } = window
 
-// const buildBullet = index => {
+// const buildBullet = () => {
 //   const classes = ['bullet', 'bullet-fill', 'bullet-check']
 //   const [bullet, fill, check] = classes.map(value => {
 //     const element = document.createElement('div')
@@ -17,20 +15,20 @@ const { gsap } = window
 //     return element
 //   })
 
-//   if (index === 0) gsap.set(fill, { width: '100%' })
-
 //   { [fill, check].forEach(element => bullet.appendChild(element)) }
 
-//   const bulletWrapper = document.querySelector('.slide-bullet-wrapper')
-//   bulletWrapper.appendChild(bullet)
+//   return bullet
 // }
 
-// const setupItem = (item, index) => {
-//   gsap.set(item, { xPercent: 100 })
-//   Object.assign(item.style, { display: 'flex' })
+// const appendBullet = bullet => document
+//   .querySelector('.slide-bullet-wrapper')
+//   .appendChild(bullet)
 
-//   if (index === 0) gsap.to(item, 0.8, { xPercent: 0 })
-// }
+// const fillBullet = fill => gsap.set(fill, { width: '100%' })
+
+// { [buildBullet(), buildBullet(), buildBullet()].forEach(appendBullet) }
+
+// fillBullet(document.querySelector('div.slide-bullet-wrapper .bullet-fill'))
 
 const initItem = item => gsap.set(item, { xPercent: 100 })
 const resetItem = item => gsap.to(item, 0.8, { xPercent: 100 })
@@ -78,7 +76,7 @@ const pay = (gpSlide, orderInfo) => {
   showItem(gpSlide)
 }
 
-const setWorkflow = (method, orderInfo) => method
+const setPaymentMethod = (method, orderInfo) => method
   .querySelector('button.next')
   .addEventListener('click', () => {
     hideItem(method)
@@ -124,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
   showItem(method)
 
   const orderInfo = document.getElementById('orderInfo')
-  setWorkflow(method, orderInfo)
+  setPaymentMethod(method, orderInfo)
 
   orderInfo.querySelector('button.back').addEventListener('click', () => {
     resetItem(orderInfo)
