@@ -6,16 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test Page</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.0/gsap.min.js"></script>
-    <script
-      src="https://monapaymentsolutions.transactiongateway.com/token/Collect.js"
+    <script src="https://monapaymentsolutions.transactiongateway.com/token/Collect.js"
       data-tokenization-key="7qyF5Y-2733nM-3tvXXH-Nkm3d7"
       data-theme="material"
       data-country="US"
       data-currency="USD"
       data-price="0"
-      data-field-google-pay-button-color="white"
-      data-field-apple-pay-style-button-style="white"
-      >
+      data-field-google-pay-button-color="white" data-field-apple-pay-style-button-style="white">
     </script>
     <link rel="stylesheet" href="./main.css"></link>
     <script src="./main.js" type="module"></script>
@@ -29,32 +26,38 @@
       </header>
 
       <main class='slider-holder'>
-
+      
         <div class="slide-bullet-wrapper"></div>
-
+      
         <div class="slider">
-
+      
           <div class="slider-item">
             <form class="form-wrap">
               <h4>Payment Method</h4>
               <table class="form-table">
                 <tr>
-                  <input type="radio" name="paymentMethod" value="cc" id="pmcc" checked>
-                  <label for="pmcc">Credit Card</label>
+                  <div class="button-wrap">
+                    <input type="radio" class="radio" name="paymentMethod" value="cc" id="pmcc" checked>
+                    <label for="pmcc">Credit Card</label>
+                  </div>
                 </tr>
                 <tr>
-                  <input type="radio" name="paymentMethod" value="gp" id="pmgp">
-                  <label for="pmgp">Google Pay</label>
+                  <div class="button-wrap">
+                    <input type="radio" class="radio" name="paymentMethod" value="gp" id="pmgp">
+                    <label for="pmgp"><img src="/media/assets/google-pay-mark_800.svg"></label>
+                  </div>
                 </tr>
                 <tr>
-                  <input type="radio" name="paymentMethod" value="ap" id="pmap">
-                  <label for="pmap">Apple Pay</label>
+                  <div class="button-wrap">
+                    <input type="radio" class="radio" name="paymentMethod" value="ap" id="pmap">
+                    <label for="pmap" id="ap-button"><img src="/media/assets/Apple_Pay_Mark_RGB_041619.svg"></label>
+                  </div>
                 </tr>
               </table>
               <button class="next" type="button">NEXT</button>
             </form>
           </div>
-
+      
           <div class="slider-item" id="orderInfo">
             <form class="form-wrap">
               <h4>Order Info</h4>
@@ -69,15 +72,15 @@
                 </tr>
                 <tr>
                   <td><label>Amount:</label></td>
-                  <td><input type="number" name='amount' required></input></td>
+                  <td><input type="number" step="0.01" name='amount' required></input></td>
                 </tr>
                 <tr>
                   <td><label>First Name:</label></td>
-                  <td><input name='first_Name' required></input></td>
+                  <td><input name='first_name' required></input></td>
                 </tr>
                 <tr>
                   <td><label>Last Name:</label></td>
-                  <td><input name='last_Name' required></input></td>
+                  <td><input name='last_name' required></input></td>
                 </tr>
                 <tr>
                   <td><label>Street Address:</label></td>
@@ -88,11 +91,13 @@
                   <td><input name='zip' required></input></td>
                 </tr>
               </table>
-              <button class="back" type="button">BACK</button>
-              <button class="next" type="button">NEXT</button>
+              <div class="next-prev-wrap">
+                <button class="back" type="button">BACK</button>
+                <button class="next" type="button">NEXT</button>
+              </div>
             </form>
           </div>
-
+      
           <div class="slider-item" id="cc-pay">
             <form class="form-wrap">
               <h4>Pay</h4>
@@ -102,29 +107,33 @@
               <button class="back" type="button">BACK</button>
             </form>
           </div>
-
+      
           <div class="slider-item" id="gp-pay">
             <form class="form-wrap">
               <h4>Pay</h4>
               <table class="form-table">
-                <tr><div id="googlepaybutton"></div></tr>
+                <tr>
+                  <div id="googlepaybutton"></div>
+                </tr>
               </table>
               <button class="back" type="button">BACK</button>
             </form>
           </div>
-
+      
           <div class="slider-item" id="ap-pay">
             <form class="form-wrap">
               <h4>Pay</h4>
               <table class="form-table">
-                <tr><div id="applepaybutton"></div></tr>
+                <tr>
+                  <div id="applepaybutton"></div>
+                </tr>
               </table>
               <button class="back" type="button">BACK</button>
             </form>
           </div>
-
+      
         </div>
-
+      
       </main>
 
       <form hidden action="/submit" id="formSubmit"></form>

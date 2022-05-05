@@ -5,31 +5,6 @@ if (!window.ApplePaySession) Object.assign(
 
 const { gsap } = window
 
-// const buildBullet = () => {
-//   const classes = ['bullet', 'bullet-fill', 'bullet-check']
-//   const [bullet, fill, check] = classes.map(value => {
-//     const element = document.createElement('div')
-
-//     element.setAttribute('class', value)
-
-//     return element
-//   })
-
-//   { [fill, check].forEach(element => bullet.appendChild(element)) }
-
-//   return bullet
-// }
-
-// const appendBullet = bullet => document
-//   .querySelector('.slide-bullet-wrapper')
-//   .appendChild(bullet)
-
-// const fillBullet = fill => gsap.set(fill, { width: '100%' })
-
-// { [buildBullet(), buildBullet(), buildBullet()].forEach(appendBullet) }
-
-// fillBullet(document.querySelector('div.slide-bullet-wrapper .bullet-fill'))
-
 const initItem = item => gsap.set(item, { xPercent: 100 })
 const resetItem = item => gsap.to(item, 0.8, { xPercent: 100 })
 const displayFlex = item => Object.assign(item.style, { display: 'flex' })
@@ -82,34 +57,6 @@ const setPaymentMethod = (method, orderInfo) => method
     hideItem(method)
     showItem(orderInfo)
   })
-
-// const bulletBack = index => {
-//   const fill = `.bullet:nth-child(${index + 1}) .bullet-fill`
-//   gsap.set(fill, { width: '0%' })
-
-//   const previousBullet = `.bullet:nth-child(${index})`
-//   gsap.to(previousBullet, { background: 'rgba(0,0,0,0.5)' })
-
-//   const previousCheck = `${previousBullet} .bullet-check`
-//   const onComplete = () => gsap.set(previousCheck, { width: '0%' })
-
-//   const previousFill = `${previousBullet} .bullet-fill`
-//   gsap.to(previousFill, 0.6, { width: '100%', onComplete })
-// }
-
-// const bulletNext = index => {
-//   const bullet = `.bullet:nth-child(${index + 1})`
-//   const check = `${bullet} .bullet-check`
-
-//   gsap.set(check, { width: '100%' })
-//   gsap.set(bullet, { background: 'transparent' })
-
-//   const nextFill = `.bullet:nth-child(${index + 2}) .bullet-fill`
-//   const onComplete = () => gsap.set(nextFill, { width: '100%' })
-
-//   const fill = `${bullet} .bullet-fill`
-//   gsap.fromTo(fill, 0.6, { width: '100%' }, { width: '0%', onComplete })
-// }
 
 document.addEventListener('DOMContentLoaded', () => {
   const sliderItems = document.querySelectorAll('.slider-item')
