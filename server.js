@@ -9,9 +9,12 @@ import { URLSearchParams } from 'url'
 import info from './results.js'
 
 app.route('/submit').get((req, res) => {
+  const isLightBox = req.query.tokenType === 'lightbox'
+  const { APIKEY, APIKEY2 } = process.env
+
   const paramsObject = Object.assign(req.query, {
     type: 'sale',
-    security_key: process.env.APIKEY
+    security_key: isLightBox ? APIKEY : APIKEY2
   })
   const postData = new URLSearchParams(paramsObject).toString()
 

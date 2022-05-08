@@ -83,6 +83,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (isValidOrder) {
       hideItem(orderInfo)
       const { value } = method.querySelector('input:checked')
+
+      if (value !== 'cc') {
+        const { CollectJS } = window
+        CollectJS.configure({ tokenizationKey: '3Qhbhm-EZ29bz-z5b3yJ-AeTMYg' })
+      }
+
       const nextSlide = document.querySelector(`#${value}-pay`)
       pay(nextSlide, orderInfo)
     }
