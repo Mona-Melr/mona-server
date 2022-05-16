@@ -39,13 +39,13 @@ app.route('/submit').get((req, res) => {
         type: params.get('type'),
         transactionid: params.get('transactionid')
       })
-      const redirectDomain = req.get('referer') || req.get('host')
-      const resultPage = `${redirectDomain}result.html?`
+      const redirectDomain = req.get('host')
+      const resultPage = `${req.protocol}://${redirectDomain}/result.html?`
 
       if (+code >= 100) res.redirect(`${resultPage}${clientQuery}`)
       else {
         console.log(`Response code: ${code} is not a valid code`)
-        res.redirect(redirectDomain)
+        res.redirect(`${req.protocol}://${redirectDomain}`)
       }
     })
   })
