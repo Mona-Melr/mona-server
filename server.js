@@ -41,6 +41,7 @@ app.route('/submit').get((req, res) => {
       })
       const redirectDomain = req.get('referer') // host for heroku referrer for melrose
       // `${req.protocol}://${redirectDomain}/result.html?` for local
+      // `${redirectDomain}result.html?` for melrose
       const resultPage = `${redirectDomain}result.html?`
 
       if (+code >= 100) res.redirect(`${resultPage}${clientQuery}`)
